@@ -1,6 +1,6 @@
 package grafo;
 
-
+import grafo.exceptions.EdgeNotFoundException;
 //import grafo.exceptions.InvalidVertexException;
 
 import java.util.ArrayList;
@@ -83,7 +83,8 @@ public class AdjacencyListGraph extends AbstractGraph {
     public void setEdgeWeight(int u, int v, double w) {
         validateVertex(u);
         validateVertex(v);
-        
+        if (!adjacencyList.get(u).containsKey(v)) throw new EdgeNotFoundException(u, v);
+        adjacencyList.get(u).put(v, w);
     }
 
 
@@ -92,7 +93,7 @@ public class AdjacencyListGraph extends AbstractGraph {
         validateVertex(u);
         validateVertex(v);
         Double w = adjacencyList.get(u).get(v);
-        
+        if (w == null) throw new EdgeNotFoundException(u, v);
         return w;
     }
 

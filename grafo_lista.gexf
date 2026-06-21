@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://gexf.net/1.3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://gexf.net/1.3 http://gexf.net/1.3/gexf.xsd"
+      version="1.3">
+  <graph defaultedgetype="directed">
+    <attributes class="node">
+      <attribute id="0" title="weight" type="double"/>
+    </attributes>
+    <attributes class="edge">
+      <attribute id="0" title="weight" type="double"/>
+    </attributes>
+    <nodes>
+      <node id="0" label="V0">
+        <attvalues>
+          <attvalue for="0" value="10,0000"/>
+        </attvalues>
+      </node>
+      <node id="1" label="V1">
+        <attvalues>
+          <attvalue for="0" value="20,5000"/>
+        </attvalues>
+      </node>
+      <node id="2" label="V2">
+        <attvalues>
+          <attvalue for="0" value="5,7500"/>
+        </attvalues>
+      </node>
+      <node id="3" label="V3">
+        <attvalues>
+          <attvalue for="0" value="0,0000"/>
+        </attvalues>
+      </node>
+      <node id="4" label="V4">
+        <attvalues>
+          <attvalue for="0" value="0,0000"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="0" target="1">
+        <attvalues>
+          <attvalue for="0" value="2,5000"/>
+        </attvalues>
+      </edge>
+      <edge id="1" source="0" target="2">
+        <attvalues>
+          <attvalue for="0" value="1,0000"/>
+        </attvalues>
+      </edge>
+      <edge id="2" source="1" target="3">
+        <attvalues>
+          <attvalue for="0" value="4,0000"/>
+        </attvalues>
+      </edge>
+      <edge id="3" source="2" target="3">
+        <attvalues>
+          <attvalue for="0" value="3,0000"/>
+        </attvalues>
+      </edge>
+      <edge id="4" source="3" target="4">
+        <attvalues>
+          <attvalue for="0" value="5,0000"/>
+        </attvalues>
+      </edge>
+      <edge id="5" source="4" target="0">
+        <attvalues>
+          <attvalue for="0" value="0,5000"/>
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

@@ -1,5 +1,7 @@
 package grafo;
 
+import grafo.exceptions.InvalidVertexException;
+import grafo.exceptions.EdgeNotFoundException;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +24,7 @@ public abstract class AbstractGraph {
 
     protected void validateVertex(int v) {
         if (v < 0 || v >= numVertices) {
+            throw new InvalidVertexException(v, numVertices);
         }
     }
 
@@ -70,17 +73,22 @@ public abstract class AbstractGraph {
     public boolean isDivergent(int u1, int v1, int u2, int v2) {
         validateVertex(u1); validateVertex(v1);
         validateVertex(u2); validateVertex(v2);
+        if (!hasEdge(u1, v1)) throw new EdgeNotFoundException(u1, v1);
+        if (!hasEdge(u2, v2)) throw new EdgeNotFoundException(u2, v2);
         return u1 == u2;
     }
 
     public boolean isConvergent(int u1, int v1, int u2, int v2) {
         validateVertex(u1); validateVertex(v1);
         validateVertex(u2); validateVertex(v2);
+        if (!hasEdge(u1, v1)) throw new EdgeNotFoundException(u1, v1);
+        if (!hasEdge(u2, v2)) throw new EdgeNotFoundException(u2, v2);
         return v1 == v2;
     }
 
     public boolean isIncident(int u, int v, int x) {
         validateVertex(u); validateVertex(v); validateVertex(x);
+        if (!hasEdge(u, v)) throw new EdgeNotFoundException(u, v);
         return x == u || x == v;
     }
 

@@ -1,5 +1,6 @@
 package grafo;
 
+import grafo.exceptions.EdgeNotFoundException;
 //import grafo.exceptions.InvalidVertexException;
 
 public class AdjacencyMatrixGraph extends AbstractGraph {
@@ -82,6 +83,7 @@ public class AdjacencyMatrixGraph extends AbstractGraph {
     public void setEdgeWeight(int u, int v, double w) {
         validateVertex(u);
         validateVertex(v);
+        if (!adjacency[u][v]) throw new EdgeNotFoundException(u, v);
         edgeWeights[u][v] = w;
     }
 
@@ -90,6 +92,7 @@ public class AdjacencyMatrixGraph extends AbstractGraph {
     public double getEdgeWeight(int u, int v) {
         validateVertex(u);
         validateVertex(v);
+        if (!adjacency[u][v]) throw new EdgeNotFoundException(u, v);
         return edgeWeights[u][v];
     }
 
